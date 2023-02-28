@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AlgoTestProjHomeWork.Writers;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -7,13 +8,20 @@ using System.Threading.Tasks;
 
 namespace AlgoTestProjHomeWork.Alghorithms
 {
-	public class Quicksort : IAlgoSorter
+	public class Quicksort : IAlgoTally
 	{
 		long actionsTaken = 0;
 		public long ActionsCounted => actionsTaken;
-		
 		Stopwatch stopwatch = new Stopwatch();
 		public Stopwatch Stopwatch { get => stopwatch; }
+		public int[] SortArray(int[] array)
+		{
+			int[] copyArrayToSort = new int[array.Length];
+			Array.Copy(array, copyArrayToSort, array.Length);
+
+			QSort(copyArrayToSort, 0, copyArrayToSort.Length - 1);
+			return copyArrayToSort;
+		}
 
 		public void QSort(int[] array, int left, int right)
 		{
@@ -28,13 +36,9 @@ namespace AlgoTestProjHomeWork.Alghorithms
 			}
 			stopwatch.Stop();
 		}
-		public int[] SortArray(int[] array)
-		{
-			QSort(array, 0, array.Length-1);
-			return array;
-		}
 		int Partition(int[] array, int left, int right)
 		{
+
 			int pivot = array[right];
 			int i = left - 1;
 			for (int j = left; j < right; j++)
@@ -54,5 +58,6 @@ namespace AlgoTestProjHomeWork.Alghorithms
 			array[i] = array[j];
 			array[j] = temp;
 		}
+
 	}
 }

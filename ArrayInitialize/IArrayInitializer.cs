@@ -2,6 +2,6 @@
 {
     public interface IArrayInitializer
     {
-        int[] InitializeArray();
+        int[] InitializeSingleArray();
     }
 }

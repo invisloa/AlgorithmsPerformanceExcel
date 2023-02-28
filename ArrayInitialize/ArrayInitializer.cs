@@ -8,7 +8,7 @@ namespace AlgoTestProjHomeWork.ArrayInitialize
 {
     public class ArrayInitializer : IArrayInitializer
     {
-        public int[] InitializeArray()
+        public int[] InitializeSingleArray()
         {
             Console.Write("Enter the maximum length of the array: ");
             int maxLength = int.Parse(Console.ReadLine());

@@ -8,15 +8,22 @@ class Program
 {
 	static void Main(string[] args)
 	{
-		IArrayInitializer arrayInitializer = Factory.CreateArrayInitializer;
-		IAlgoSorter quickSorter = Factory.CreateQuicksort;
 		IPerformanceWriter performanceWriter = Factory.CreatePerformanceWriter;
-		int [] someArray = arrayInitializer.InitializeArray();
+		IArrayInitializer arrayInitializer = Factory.CreateArrayInitializer;
+		int[] someArray = arrayInitializer.InitializeSingleArray();
 
+		IAlgoTally quickSorter = Factory.CreateQuicksort;
+		IAlgoTally boubleSorter = Factory.CreateBoubleSorter;
+		IAlgoTally mergeSorter = Factory.CreateMergeSorter;
+
+		boubleSorter.SortArray(someArray);
 		quickSorter.SortArray(someArray);
-		performanceWriter.WritePerformance(quickSorter);
+		mergeSorter.SortArray(someArray);
 
-		foreach (int i in someArray) { Console.WriteLine(i); }
+		performanceWriter.WritePerformance(quickSorter);
+		performanceWriter.WritePerformance(boubleSorter);
+		performanceWriter.WritePerformance(mergeSorter);
+
 
 
 	}

@@ -12,7 +12,9 @@ namespace AlgoTestProjHomeWork
     public static class Factory
 	{
 		public static IArrayInitializer CreateArrayInitializer { get => new ArrayInitializer(); }
-		public static IAlgoSorter CreateQuicksort { get => new Quicksort(); }
 		public static IPerformanceWriter CreatePerformanceWriter { get => new PerformanceWriter(); }
+		public static IAlgoTally CreateQuicksort { get => new Quicksort(); }
+		public static IAlgoTally CreateBoubleSorter { get => new BoubleSort(); }
+		public static IAlgoTally CreateMergeSorter { get => new MergeSort(); }
 	}
 }

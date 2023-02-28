@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AlgoTestProjHomeWork.Alghorithms
 {
-	public interface IAlgoSorter
+	public interface IAlgoTally
 	{
 		int[] SortArray(int[] array);
 		Stopwatch Stopwatch { get; }

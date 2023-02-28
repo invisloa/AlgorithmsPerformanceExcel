@@ -4,7 +4,7 @@ namespace AlgoTestProjHomeWork.Writers
 {
 	public interface IPerformanceWriter
 	{
-		public void WritePerformance(IAlgoSorter sorter);
+		public void WritePerformance(IAlgoTally algoToShowScores);
 
 	}
 }
