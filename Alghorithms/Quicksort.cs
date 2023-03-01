@@ -8,13 +8,10 @@ using System.Threading.Tasks;
 
 namespace AlgoTestProjHomeWork.Alghorithms
 {
-	public class Quicksort : IAlgoTally
+	public class Quicksort : AbstractSortingAlgorithm
 	{
-		long actionsTaken = 0;
-		public long ActionsCounted => actionsTaken;
-		Stopwatch stopwatch = new Stopwatch();
-		public Stopwatch Stopwatch { get => stopwatch; }
-		public int[] SortArray(int[] array)
+		public override string ToString() { return "Quicksort"; }
+		public override int[] SortArray(int[] array)
 		{
 			int[] copyArrayToSort = new int[array.Length];
 			Array.Copy(array, copyArrayToSort, array.Length);

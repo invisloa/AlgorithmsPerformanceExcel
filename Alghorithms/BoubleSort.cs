@@ -3,15 +3,11 @@ using System.Diagnostics;
 
 namespace AlgoTestProjHomeWork.Alghorithms
 {
-	internal class BoubleSort : IAlgoTally
+	internal class BoubleSort : AbstractSortingAlgorithm
 	{
-		long actionsTaken = 0;
-		Stopwatch stopwatch = new Stopwatch();
+		public override string ToString() { return "Boublesort"; }
 
-		public long ActionsCounted{get => actionsTaken;}
-		public Stopwatch Stopwatch { get => stopwatch; }
-
-		public int[] SortArray(int[] array)
+		public override int[] SortArray(int[] array)
 		{
 			int[] copyArrayToSort = new int[array.Length];
 			Array.Copy(array, copyArrayToSort, array.Length);
@@ -37,5 +33,7 @@ namespace AlgoTestProjHomeWork.Alghorithms
 			stopwatch.Stop();
 			return copyArrayToSort;
 		}
+
+
 	}
 }

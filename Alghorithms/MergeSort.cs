@@ -7,12 +7,17 @@ using System.Threading.Tasks;
 
 namespace AlgoTestProjHomeWork.Alghorithms
 {
-	internal class MergeSort : IAlgoTally
+	internal class MergeSort : AbstractSortingAlgorithm
 	{
-		long actionsTaken = 0;
-		public long ActionsCounted => actionsTaken;
-		Stopwatch stopwatch = new Stopwatch();
-		public Stopwatch Stopwatch { get => stopwatch; }
+		public override string ToString() { return "Mergesort"; }
+		public override int[] SortArray(int[] array)
+		{
+			int[] copyArrayToSort = new int[array.Length];
+			Array.Copy(array, copyArrayToSort, array.Length);
+
+			MSort(copyArrayToSort);
+			return copyArrayToSort;
+		}
 
 
 
@@ -30,9 +35,7 @@ namespace AlgoTestProjHomeWork.Alghorithms
 			int[] right = new int[arr.Length - mid];
 
 			Array.Copy(arr, 0, left, 0, mid);
-			actionsTaken++;                        // array copying ++
 			Array.Copy(arr, mid, right, 0, arr.Length - mid);
-			actionsTaken++;                        // array copying ++
 
 			MSort(left);
 			MSort(right);
@@ -73,13 +76,5 @@ namespace AlgoTestProjHomeWork.Alghorithms
 			}
 		}
 
-		public int[] SortArray(int[] array)
-		{
-			int[] copyArrayToSort = new int[array.Length];
-			Array.Copy(array, copyArrayToSort, array.Length);
-
-			MSort(copyArrayToSort);
-			return copyArrayToSort;
-		}
 	}
 }

@@ -9,8 +9,10 @@ namespace AlgoTestProjHomeWork.Alghorithms
 {
 	public interface IAlgoTally
 	{
+		void SortMultipleArrays(int[][] array);
 		int[] SortArray(int[] array);
 		Stopwatch Stopwatch { get; }
 		public long ActionsCounted {  get; }
+		public void resetPerformance();
 	}
 }

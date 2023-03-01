@@ -11,6 +11,7 @@ namespace AlgoTestProjHomeWork.Writers
 	{
 		public void WritePerformance(IAlgoTally algoToShowScores)
 		{
+			Console.WriteLine(algoToShowScores);
 			Console.WriteLine($"Elapsed time: {algoToShowScores.Stopwatch.Elapsed.TotalMilliseconds} milliseconds");
 			Console.WriteLine($"Number of actions taken:{algoToShowScores.ActionsCounted} \n \n");
 			algoToShowScores.Stopwatch.Reset();

@@ -10,7 +10,8 @@ class Program
 	{
 		IPerformanceWriter performanceWriter = Factory.CreatePerformanceWriter;
 		IArrayInitializer arrayInitializer = Factory.CreateArrayInitializer;
-		int[] someArray = arrayInitializer.InitializeSingleArray();
+		int[] someArray = arrayInitializer.SingleArrayInitializer();
+		int[][] someArrays = arrayInitializer.SingleArrayInitializer();
 
 		IAlgoTally quickSorter = Factory.CreateQuicksort;
 		IAlgoTally boubleSorter = Factory.CreateBoubleSorter;
@@ -20,11 +21,8 @@ class Program
 		quickSorter.SortArray(someArray);
 		mergeSorter.SortArray(someArray);
 
-		performanceWriter.WritePerformance(quickSorter);
 		performanceWriter.WritePerformance(boubleSorter);
+		performanceWriter.WritePerformance(quickSorter);
 		performanceWriter.WritePerformance(mergeSorter);
-
-
-
 	}
 }
