@@ -8,6 +8,7 @@ namespace AlgoTestProjHomeWork.ArrayInitialize
 {
     public class ArrayInitializer : IArrayInitializer
     {
+		Random random = new Random();
 		public int[] SingleArrayInitializer()
 		{
 			
@@ -19,13 +20,13 @@ namespace AlgoTestProjHomeWork.ArrayInitialize
 		public int[] SingleArrayInitializer(int maxLength)
 		{
 			int[] array = new int[maxLength];
-			Random random = new Random();
 			for (int i = 0; i < maxLength; i++)
 			{
-				array[i] = random.Next(1, 1001);
+				array[i] = ValuesRandoizer();
 			}
-			Console.WriteLine("Generated array:");
+/*			Console.WriteLine("Generated array:");
 			Console.WriteLine(string.Join(", ", array));
+*/
 			return array;
 		}
 
@@ -37,7 +38,6 @@ namespace AlgoTestProjHomeWork.ArrayInitialize
 			Console.Write("Enter the numbers of values in a single array: ");
 			int howManyValuesInAnArray = GetUserInputValues();
 			int[][] arrayOfArrays = new int[howManyArrays][]; 
-
 
 			for (int i = 0; i < howManyArrays; i++)
 			{
@@ -53,6 +53,10 @@ namespace AlgoTestProjHomeWork.ArrayInitialize
 				Console.WriteLine("hmmmm.... Are You sure it was a good number....??");
 			}
 			return userInput;
+		}
+		int ValuesRandoizer()
+		{
+			return random.Next(1, 1001);
 		}
 
 	}

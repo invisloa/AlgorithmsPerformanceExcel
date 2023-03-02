@@ -3,9 +3,9 @@ using System.Diagnostics;
 
 namespace AlgoTestProjHomeWork.Alghorithms
 {
-	internal class BoubleSort : AbstractSortingAlgorithm
+	internal class BubleSort : AbstractSortingAlgorithm
 	{
-		public override string ToString() { return "Boublesort"; }
+		public override string ToString() { return "Bublesort"; }
 
 		public override int[] SortArray(int[] array)
 		{

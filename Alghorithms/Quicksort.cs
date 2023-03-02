@@ -15,7 +15,6 @@ namespace AlgoTestProjHomeWork.Alghorithms
 		{
 			int[] copyArrayToSort = new int[array.Length];
 			Array.Copy(array, copyArrayToSort, array.Length);
-
 			QSort(copyArrayToSort, 0, copyArrayToSort.Length - 1);
 			return copyArrayToSort;
 		}

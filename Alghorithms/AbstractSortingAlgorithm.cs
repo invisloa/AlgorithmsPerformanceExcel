@@ -7,8 +7,8 @@ namespace AlgoTestProjHomeWork.Alghorithms
 
 		protected long actionsTaken = 0;
 		protected Stopwatch stopwatch = new Stopwatch();
-		public long ActionsCounted { get => actionsTaken; }
-		public Stopwatch Stopwatch { get => stopwatch; }
+		public long ActionsCounted => actionsTaken; 
+		public Stopwatch Stopwatch => stopwatch; 
 
 		public void resetPerformance()
 		{
