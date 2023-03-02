@@ -16,6 +16,7 @@ namespace AlgoTestProjHomeWork.Writers
 			Console.WriteLine($"Number of actions taken:{algoToShowScores.ActionsCounted} \n \n");
 			algoToShowScores.Stopwatch.Reset();
 		}
+
 		public void AllAlgorithmsPerformances(List<IAlgoTally> allAlgorithms)
 		{
 			foreach (IAlgoTally item in allAlgorithms)
