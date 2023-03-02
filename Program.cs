@@ -1,9 +1,7 @@
 ﻿using AlgoTestProjHomeWork;
-using AlgoTestProjHomeWork.Alghorithms;
 using AlgoTestProjHomeWork.ArrayInitialize;
 using AlgoTestProjHomeWork.MultiSorting;
 using AlgoTestProjHomeWork.Writers;
-using System;
 
 class Program
 {
@@ -14,7 +12,9 @@ class Program
 		int[][] multipleArrays = arrayInitializer.MultiArrayInitializer();
 		IMultiAlgoSorter multiAlgoSorter = Factory.CreateMultiAlgoSorter;
 		multiAlgoSorter.SortMultipleArrays(multipleArrays);
-		performanceWriter.AllAlgorithmsPerformances(multiAlgoSorter.AllSortingAlgoritms);
+		ExcelScoresWriter excelWriter = new();
+		excelWriter.WriteAllAlgorithmsPerformances(multiAlgoSorter.AllSortingAlgoritms);
+		//performanceWriter.AllAlgorithmsPerformances(multiAlgoSorter.AllSortingAlgoritms);
 	}
 }
 

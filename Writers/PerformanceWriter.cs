@@ -25,6 +25,5 @@ namespace AlgoTestProjHomeWork.Writers
 			}
 		}
 
-
 	}
 }
