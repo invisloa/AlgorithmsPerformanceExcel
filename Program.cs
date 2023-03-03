@@ -9,9 +9,8 @@ class Program
 	{
 		IPerformanceWriter performanceWriter = Factory.CreatePerformanceWriter;
 		IArrayInitializer arrayInitializer = Factory.CreateArrayInitializer;
-
-		int[][] multipleArrays = arrayInitializer.InitializeMultipleArrays();
 		IMultipleAlgorithmsSorter multiAlgorithmsSorter = Factory.CreateMultiAlgorithmsSorter;
+		int[][] multipleArrays = arrayInitializer.InitializeMultipleArrays();
 
 		multiAlgorithmsSorter.SortMultipleArrays(multipleArrays);
 
