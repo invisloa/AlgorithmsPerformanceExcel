@@ -17,11 +17,7 @@ namespace AlgoTestProjHomeWork.Alghorithms
 			stopwatch.Stop();
 			return copyArrayToSort;
 		}
-
 		public override string ToString() { return "Insertion Sort"; }
-
-
-
 		public void InsSort(int[] arr)
 		{
 			int n = arr.Length;

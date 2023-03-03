@@ -4,18 +4,15 @@ namespace AlgoTestProjHomeWork.Alghorithms
 {
 	public abstract class AbstractSortingAlgorithm : IAlgorithmScoresCounter
 	{
-
 		protected long actionsTaken = 0;
 		protected Stopwatch stopwatch = new Stopwatch();
 		public long ActionsCounted => actionsTaken; 
-		public Stopwatch Stopwatch => stopwatch; 
-
+		public Stopwatch Stopwatch => stopwatch
 		public void ResetPerformance()
 		{
 			actionsTaken = 0;
 			stopwatch.Reset();
 		}
-
 		/// <summary>
 		/// SortArray works on a copy of the provided array, to make all sorting algorithms work on the same arrays
 		/// </summary>

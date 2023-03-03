@@ -6,12 +6,10 @@ namespace AlgoTestProjHomeWork.Alghorithms
 	internal class BubleSort : AbstractSortingAlgorithm
 	{
 		public override string ToString() { return "Buble Sort"; }
-
 		public override int[] SortArray(int[] array)
 		{
 			int[] copyArrayToSort = new int[array.Length];
 			Array.Copy(array, copyArrayToSort, array.Length);
-
 			stopwatch.Start();
 			{
 				int n = copyArrayToSort.Length;
@@ -32,7 +30,5 @@ namespace AlgoTestProjHomeWork.Alghorithms
 			stopwatch.Stop();
 			return copyArrayToSort;
 		}
-
-
 	}
 }

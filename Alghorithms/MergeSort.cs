@@ -20,9 +20,6 @@ namespace AlgoTestProjHomeWork.Alghorithms
 
 			return copyArrayToSort;
 		}
-
-
-
 		void MSort(int[] arr)
 		{
 			actionsTaken++;                        // calling self is a meaningfull operation
@@ -53,7 +50,6 @@ namespace AlgoTestProjHomeWork.Alghorithms
 
 			while (i < left.Length && j < right.Length)
 			{
-
 				if (left[i] <= right[j])
 				{
 					arr[k++] = left[i++];
@@ -66,13 +62,11 @@ namespace AlgoTestProjHomeWork.Alghorithms
 
 			while (i < left.Length)
 			{
-
 				arr[k++] = left[i++];
 			}
 
 			while (j < right.Length)
 			{
-
 				arr[k++] = right[j++];
 			}
 		}
