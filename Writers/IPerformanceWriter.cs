@@ -4,8 +4,8 @@ namespace AlgoTestProjHomeWork.Writers
 {
 	public interface IPerformanceWriter
 	{
-		public void WritePerformance(IAlgoTally algoToShowScores);
-		public void AllAlgorithmsPerformances(List<IAlgoTally> allAlgorithms);
+		public void WritePerformance(IAlgoScoresCounter algoToShowScores);
+		public void WriteAllAlgorithmsPerformances(List<IAlgoScoresCounter> allAlgorithms);
 
 
 	}

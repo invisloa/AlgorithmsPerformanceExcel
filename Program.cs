@@ -8,12 +8,11 @@ class Program
 	static void Main(string[] args)
 	{
 		IPerformanceWriter performanceWriter = Factory.CreatePerformanceWriter;
+
 		IArrayInitializer arrayInitializer = Factory.CreateArrayInitializer;
 		int[][] multipleArrays = arrayInitializer.MultiArrayInitializer();
 		IMultiAlgoSorter multiAlgoSorter = Factory.CreateMultiAlgoSorter;
 		multiAlgoSorter.SortMultipleArrays(multipleArrays);
-		ExcelScoresWriter excelWriter = new();
-		excelWriter.WriteAllAlgorithmsPerformances(multiAlgoSorter.AllSortingAlgoritms);
 		//performanceWriter.AllAlgorithmsPerformances(multiAlgoSorter.AllSortingAlgoritms);
 	}
 }

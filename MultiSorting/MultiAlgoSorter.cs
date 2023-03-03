@@ -9,12 +9,12 @@ namespace AlgoTestProjHomeWork.MultiSorting
 {
 	public class MultiAlgoSorter : IMultiAlgoSorter
 	{
-		List<IAlgoTally> sortingAlgorithms = Factory.AllSortingAlgorithms;
-		public List<IAlgoTally> AllSortingAlgoritms => sortingAlgorithms;
+		List<IAlgoScoresCounter> sortingAlgorithms = Factory.AllSortingAlgorithms;
+		public List<IAlgoScoresCounter> AllSortingAlgoritms => sortingAlgorithms;
 
 		public void SortMultipleArrays(int[][] arraysToSort)
 		{
-			foreach (IAlgoTally item in sortingAlgorithms)
+			foreach (IAlgoScoresCounter item in sortingAlgorithms)
 			{
 				foreach (int[] array in arraysToSort)
 				{

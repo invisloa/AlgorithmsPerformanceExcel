@@ -1,51 +1,68 @@
 ﻿using AlgoTestProjHomeWork.Alghorithms;
+using ClosedXML.Excel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Excel = Microsoft.Office.Interop.Excel;
-
 
 namespace AlgoTestProjHomeWork.Writers
 {
-	public class ExcelScoresWriter
+	public class ExcelScoresWriter : IDisposable, IPerformanceWriter
 	{
-		Excel.Application excelApp;
-		Excel.Workbook workbook;
-		Excel.Worksheet worksheet;
-		int currentRow = 0;
+		private ISortAlgorithmsScores _scoreSorter;
+		private readonly IXLWorkbook workbook;
+		private readonly IXLWorksheet worksheet;
+
+		private ISortAlgorithmsScores ScoreSorter => _scoreSorter ??= Factory.CreateSortScoresBeforeWrite;
+
+		public IXLWorkbook Workbook => workbook;
+		public IXLWorksheet Worksheet => worksheet;
+
 		public ExcelScoresWriter()
 		{
-			excelApp = new Excel.Application();
-			workbook = excelApp.Workbooks.Add();
-			worksheet = (Excel.Worksheet)workbook.Worksheets[1];
-			worksheet.Cells[currentRow, 1] = $"Algorithm type";
-			worksheet.Cells[currentRow, 2] = $"Operating time";
-			worksheet.Cells[currentRow, 3] = $"Actions";
-			currentRow++;
+			workbook = new XLWorkbook();
+			worksheet = workbook.Worksheets.Add("Algoritms performances");
+
+			// Initialize the worksheet headers
+			Worksheet.Cell(1, 1).Value = "Algorithm type";
+			Worksheet.Cell(1, 2).Value = "Operating time";
+			Worksheet.Cell(1, 3).Value = "Actions";
 		}
 
-		public void WriteToExcel(IAlgoTally algoToShowScores)
+		public void WriteToExcel(IAlgoScoresCounter algoToShowScores)
 		{
-			worksheet.Cells[currentRow, 1] = $"{algoToShowScores}";
-			worksheet.Cells[currentRow, 2] = $"{algoToShowScores.Stopwatch.Elapsed.TotalMilliseconds}";
-			worksheet.Cells[currentRow, 3] = $"{algoToShowScores.ActionsCounted}";
-			currentRow++;
+			// Write the algorithm scores to the next row in the worksheet
+			int currentRow = Worksheet.LastRowUsed().RowNumber() + 1;
+			Worksheet.Cell(currentRow, 1).Value = algoToShowScores.ToString();
+			Worksheet.Cell(currentRow, 2).Value = algoToShowScores.Stopwatch.Elapsed.TotalMilliseconds;
+			Worksheet.Cell(currentRow, 3).Value = algoToShowScores.ActionsCounted;
 		}
 
-		public void WriteAllAlgorithmsPerformances(List<IAlgoTally> allAlgorithms)
+		public void WriteAllAlgorithmsPerformances(List<IAlgoScoresCounter> allAlgorithms)
 		{
-			foreach (IAlgoTally item in allAlgorithms)
+			// Sort the algorithms by score before writing them to the worksheet
+			ScoreSorter.SortScoresBeforeWrite(allAlgorithms);
+
+			foreach (var algorithm in allAlgorithms)
 			{
-				WriteToExcel(item);
-				item.Stopwatch.Reset();
+				WriteToExcel(algorithm);
+				algorithm.Stopwatch.Reset();
 			}
-			worksheet.SaveAs($"output.xlsx");
-			workbook.Close();
-			excelApp.Quit();
 
+			// Save the workbook to a file and dispose of the workbook object
+			using (var workbook = Worksheet.Workbook)
+			{
+				workbook.SaveAs("SortedAlgorithms.xlsx");
+			}
 		}
 
+		public void Dispose()
+		{
+			Workbook.Dispose();
+		}
+
+		public void WritePerformance(IAlgoScoresCounter algoToShowScores)
+		{
+			WriteToExcel(algoToShowScores);
+			algoToShowScores.Stopwatch.Reset();
+		}
 	}
 }

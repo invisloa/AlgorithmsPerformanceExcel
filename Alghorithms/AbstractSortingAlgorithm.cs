@@ -2,7 +2,7 @@
 
 namespace AlgoTestProjHomeWork.Alghorithms
 {
-	public abstract class AbstractSortingAlgorithm : IAlgoTally
+	public abstract class AbstractSortingAlgorithm : IAlgoScoresCounter
 	{
 
 		protected long actionsTaken = 0;

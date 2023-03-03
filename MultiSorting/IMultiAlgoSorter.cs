@@ -4,7 +4,7 @@ namespace AlgoTestProjHomeWork.MultiSorting
 {
 	public interface IMultiAlgoSorter
 	{
-		List<IAlgoTally> AllSortingAlgoritms { get; }
+		List<IAlgoScoresCounter> AllSortingAlgoritms { get; }
 		void SortMultipleArrays(int[][] arraysToSort);
 	}
 }

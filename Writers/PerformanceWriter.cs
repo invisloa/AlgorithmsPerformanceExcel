@@ -9,7 +9,7 @@ namespace AlgoTestProjHomeWork.Writers
 {
 	internal class PerformanceWriter : IPerformanceWriter
 	{
-		public void WritePerformance(IAlgoTally algoToShowScores)
+		public void WritePerformance(IAlgoScoresCounter algoToShowScores)
 		{
 			Console.WriteLine(algoToShowScores);
 			Console.WriteLine($"Elapsed time: {algoToShowScores.Stopwatch.Elapsed.TotalMilliseconds} milliseconds");
@@ -17,9 +17,9 @@ namespace AlgoTestProjHomeWork.Writers
 			algoToShowScores.Stopwatch.Reset();
 		}
 
-		public void AllAlgorithmsPerformances(List<IAlgoTally> allAlgorithms)
+		public void WriteAllAlgorithmsPerformances(List<IAlgoScoresCounter> allAlgorithms)
 		{
-			foreach (IAlgoTally item in allAlgorithms)
+			foreach (IAlgoScoresCounter item in allAlgorithms)
 			{
 				WritePerformance(item);
 			}

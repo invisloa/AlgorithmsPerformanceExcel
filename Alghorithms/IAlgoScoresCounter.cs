@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AlgoTestProjHomeWork.Alghorithms
 {
-	public interface IAlgoTally
+	public interface IAlgoScoresCounter
 	{
 		void SortMultipleArrays(int[][] array);
 		int[] SortArray(int[] array);
