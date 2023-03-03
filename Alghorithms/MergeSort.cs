@@ -14,8 +14,10 @@ namespace AlgoTestProjHomeWork.Alghorithms
 		{
 			int[] copyArrayToSort = new int[array.Length];
 			Array.Copy(array, copyArrayToSort, array.Length);
-
+			stopwatch.Start();
 			MSort(copyArrayToSort);
+			stopwatch.Stop();
+
 			return copyArrayToSort;
 		}
 
@@ -23,7 +25,6 @@ namespace AlgoTestProjHomeWork.Alghorithms
 
 		void MSort(int[] arr)
 		{
-			stopwatch.Start();
 			actionsTaken++;                        // calling self is a meaningfull operation
 			if (arr.Length < 2)
 			{

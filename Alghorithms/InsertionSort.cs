@@ -12,7 +12,9 @@ namespace AlgoTestProjHomeWork.Alghorithms
 		{
 			int[] copyArrayToSort = new int[array.Length];
 			Array.Copy(array, copyArrayToSort, array.Length);
+			stopwatch.Start();
 			InsSort(copyArrayToSort);
+			stopwatch.Stop();
 			return copyArrayToSort;
 		}
 
@@ -22,7 +24,6 @@ namespace AlgoTestProjHomeWork.Alghorithms
 
 		public void InsSort(int[] arr)
 		{
-			stopwatch.Start();
 			int n = arr.Length;
 			for (int i = 1; i < n; ++i)
 			{
@@ -39,7 +40,6 @@ namespace AlgoTestProjHomeWork.Alghorithms
 				}
 				arr[j + 1] = key;		// Set the key to the next array element
 			}
-			stopwatch.Stop();
 		}
 	}
 }
