@@ -1,10 +1,11 @@
 ﻿using AlgoTestProjHomeWork.Alghorithms;
+using AlgoTestProjHomeWork.MultiSorting;
 
 namespace AlgoTestProjHomeWork.Writers
 {
 	public interface ISortAlgorithmsScores
 	{
-		public void SortScoresBeforeWrite(List<IAlgoScoresCounter> allAlgorithms);
+		public void SortScoresBeforeWrite(IMultipleAlgorithmsSorter allAlgorithms);
 
 	}
 }

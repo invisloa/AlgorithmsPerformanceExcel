@@ -1,4 +1,5 @@
 ﻿using AlgoTestProjHomeWork.Alghorithms;
+using AlgoTestProjHomeWork.MultiSorting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,24 +8,23 @@ using System.Threading.Tasks;
 
 namespace AlgoTestProjHomeWork.Writers
 {
-	internal class ScoresSorter : ISortAlgorithmsScores
+	internal class AlgorithmsScoresSorter : ISortAlgorithmsScores
 	{
-		public void SortScoresBeforeWrite(List<IAlgoScoresCounter> allAlgorithms)
+		public void SortScoresBeforeWrite(IMultipleAlgorithmsSorter allAlgorithms)
 		{
-			int n = allAlgorithms.Count;
+			int n = allAlgorithms.AllUsedAlgoritms.Count;
 			for (int i = 0; i < n - 1; i++)
 			{
 				for (int j = 0; j < n - i - 1; j++)
 				{
-					if (allAlgorithms[j].Stopwatch.Elapsed.TotalMilliseconds > allAlgorithms[j + 1].Stopwatch.Elapsed.TotalMilliseconds)
+					if (allAlgorithms.AllUsedAlgoritms[j].Stopwatch.Elapsed.TotalMilliseconds > allAlgorithms.AllUsedAlgoritms[j + 1].Stopwatch.Elapsed.TotalMilliseconds)
 					{
-						IAlgoScoresCounter temp = allAlgorithms[j];
-						allAlgorithms[j] = allAlgorithms[j + 1];
-						allAlgorithms[j + 1] = temp;
+						IAlgorithmScoresCounter temp = allAlgorithms.AllUsedAlgoritms[j];
+						allAlgorithms.AllUsedAlgoritms[j] = allAlgorithms.AllUsedAlgoritms[j + 1];
+						allAlgorithms.AllUsedAlgoritms[j + 1] = temp;
 					}
 				}
 			}
 		}
-
 	}
 }

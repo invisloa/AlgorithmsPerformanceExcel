@@ -2,7 +2,7 @@
 
 namespace AlgoTestProjHomeWork.Alghorithms
 {
-	public abstract class AbstractSortingAlgorithm : IAlgoScoresCounter
+	public abstract class AbstractSortingAlgorithm : IAlgorithmScoresCounter
 	{
 
 		protected long actionsTaken = 0;
@@ -10,20 +10,26 @@ namespace AlgoTestProjHomeWork.Alghorithms
 		public long ActionsCounted => actionsTaken; 
 		public Stopwatch Stopwatch => stopwatch; 
 
-		public void resetPerformance()
+		public void ResetPerformance()
 		{
 			actionsTaken = 0;
 			stopwatch.Reset();
 		}
 
+		/// <summary>
+		/// SortArray works on a copy of the provided array, to make all sorting algorithms work on the same arrays
+		/// </summary>
+		/// <param name="array"></param>
+		/// <returns></returns>
 		public abstract int[] SortArray(int[] array);
 
-		public void SortMultipleArrays(int[][] array)
+		public int[][] SortMultipleArrays(int[][] array)
 		{
 			foreach (int[] arrayToSort in array)
 			{
 				SortArray(arrayToSort);
 			}
+			return array;
 		}
 		public abstract override string ToString();
 	}

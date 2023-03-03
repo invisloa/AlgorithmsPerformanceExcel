@@ -5,7 +5,7 @@ namespace AlgoTestProjHomeWork.Alghorithms
 {
 	internal class BubleSort : AbstractSortingAlgorithm
 	{
-		public override string ToString() { return "Bublesort"; }
+		public override string ToString() { return "Buble Sort"; }
 
 		public override int[] SortArray(int[] array)
 		{
@@ -19,10 +19,10 @@ namespace AlgoTestProjHomeWork.Alghorithms
 				{
 					for (int j = 0; j < n - i - 1; j++)
 					{
-						actionsTaken++;
 
 						if (copyArrayToSort[j] > copyArrayToSort[j + 1])
 						{
+							actionsTaken++;
 							int temp = copyArrayToSort[j];
 							copyArrayToSort[j] = copyArrayToSort[j + 1];
 							copyArrayToSort[j + 1] = temp;

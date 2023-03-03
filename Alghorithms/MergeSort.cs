@@ -9,7 +9,7 @@ namespace AlgoTestProjHomeWork.Alghorithms
 {
 	internal class MergeSort : AbstractSortingAlgorithm
 	{
-		public override string ToString() { return "Mergesort"; }
+		public override string ToString() { return "Merge Sort"; }
 		public override int[] SortArray(int[] array)
 		{
 			int[] copyArrayToSort = new int[array.Length];

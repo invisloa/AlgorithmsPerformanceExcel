@@ -10,18 +10,19 @@ namespace AlgoTestProjHomeWork.Alghorithms
 {
 	public class Quicksort : AbstractSortingAlgorithm
 	{
-		public override string ToString() { return "Quicksort"; }
+		public override string ToString() { return "Quick Sort"; }
 		public override int[] SortArray(int[] array)
 		{
 			int[] copyArrayToSort = new int[array.Length];
 			Array.Copy(array, copyArrayToSort, array.Length);
+			stopwatch.Start();
 			QSort(copyArrayToSort, 0, copyArrayToSort.Length - 1);
+			stopwatch.Stop();
 			return copyArrayToSort;
 		}
 
 		public void QSort(int[] array, int left, int right)
 		{
-			stopwatch.Start();
 			actionsTaken++;
 
 			if (left < right)
@@ -30,7 +31,6 @@ namespace AlgoTestProjHomeWork.Alghorithms
 				QSort(array, left, pivotIndex - 1);
 				QSort(array, pivotIndex + 1, right);
 			}
-			stopwatch.Stop();
 		}
 		int Partition(int[] array, int left, int right)
 		{

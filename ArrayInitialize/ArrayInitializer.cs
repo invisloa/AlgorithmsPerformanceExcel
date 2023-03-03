@@ -8,14 +8,18 @@ namespace AlgoTestProjHomeWork.ArrayInitialize
 {
     public class ArrayInitializer : IArrayInitializer
     {
+		int howManyArrays;
+		int howManyValuesInAnArray;
+
 		Random random = new Random();
+
+		public int NumberOfArraysToSort => howManyArrays;
+		public int NumberOfValuesInArray => howManyValuesInAnArray;
 		public int[] SingleArrayInitializer()
 		{
-			
 			Console.Write("Enter the maximum length of the array: ");
-			int maxLength = GetUserInputValues();
-			return SingleArrayInitializer(maxLength);
-		
+			int NumberOfValuesInArray = GetUserInputValues();
+			return SingleArrayInitializer(NumberOfValuesInArray);
 		}
 		public int[] SingleArrayInitializer(int maxLength)
 		{
@@ -31,17 +35,17 @@ namespace AlgoTestProjHomeWork.ArrayInitialize
 		}
 
 
-		public int[][] MultiArrayInitializer()
+		public int[][] InitializeMultipleArrays()
 		{
 			Console.Write("Enter the numbers of arrays: ");
-			int howManyArrays = GetUserInputValues();
+			howManyArrays = GetUserInputValues();
 			Console.Write("Enter the numbers of values in a single array: ");
-			int howManyValuesInAnArray = GetUserInputValues();
-			int[][] arrayOfArrays = new int[howManyArrays][]; 
+			howManyValuesInAnArray = GetUserInputValues();
+			int[][] arrayOfArrays = new int[NumberOfArraysToSort][]; 
 
-			for (int i = 0; i < howManyArrays; i++)
+			for (int i = 0; i < NumberOfArraysToSort; i++)
 			{
-				arrayOfArrays[i] = SingleArrayInitializer(howManyValuesInAnArray);
+				arrayOfArrays[i] = SingleArrayInitializer(NumberOfValuesInArray);
 			}
 			return arrayOfArrays;
 		}

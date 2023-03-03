@@ -2,8 +2,10 @@
 {
     public interface IArrayInitializer
     {
-        public int[] SingleArrayInitializer();
-        public int[][] MultiArrayInitializer();
+		public int NumberOfArraysToSort { get; }
+		public int NumberOfValuesInArray { get; }
+		public int[] SingleArrayInitializer();
+        public int[][] InitializeMultipleArrays();
 
 
 	}
