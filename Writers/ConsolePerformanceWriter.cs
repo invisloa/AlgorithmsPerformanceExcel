@@ -15,7 +15,6 @@ namespace AlgoTestProjHomeWork.Writers
 			Console.WriteLine(algorithmToShowScores);
 			Console.WriteLine($"Elapsed time: {algorithmToShowScores.Stopwatch.Elapsed.TotalMilliseconds} milliseconds");
 			Console.WriteLine($"Number of actions taken:{algorithmToShowScores.ActionsCounted} \n \n");
-			algorithmToShowScores.Stopwatch.Reset();
 		}
 
 		public void WriteAllAlgorithmsPerformances(IMultipleAlgorithmsSorter allAlgorithmsList)

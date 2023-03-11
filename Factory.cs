@@ -18,7 +18,9 @@ namespace AlgoTestProjHomeWork
 
 		};  
 		public static IArrayInitializer CreateArrayInitializer  => new ArrayInitializer();
-		public static IPerformanceWriter CreatePerformanceWriter=> new ExcelScoresWriter();
+		public static IPerformanceWriter CreatePerformanceWriter => new ExcelScoresWriter();
+		public static IPerformanceWriter CreateConsolePerformanceWriter => new ConsolePerformanceWriter();
+
 
 		//Creators for all available algorithms
 		#region Sorting algorithms

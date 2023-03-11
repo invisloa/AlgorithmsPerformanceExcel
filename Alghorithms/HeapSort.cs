@@ -13,7 +13,6 @@ namespace AlgoTestProjHomeWork.Alghorithms
 		{
 			int[] copyArrayToSort = new int[array.Length];
 			Array.Copy(array, copyArrayToSort, array.Length);
-
 			stopwatch.Start();
 			Heap_sort(copyArrayToSort);
 			stopwatch.Stop();

@@ -7,13 +7,17 @@ class Program
 {
 	static void Main(string[] args)
 	{
-		IPerformanceWriter performanceWriter = Factory.CreatePerformanceWriter;
+		IPerformanceWriter excelPerformanceWriter = Factory.CreatePerformanceWriter;
+		IPerformanceWriter consolePerformanceWriter = Factory.CreateConsolePerformanceWriter;
 		IArrayInitializer arrayInitializer = Factory.CreateArrayInitializer;
 		IMultipleAlgorithmsSorter multiAlgorithmsSorter = Factory.CreateMultiAlgorithmsSorter;
+		
 		int[][] multipleArrays = arrayInitializer.InitializeMultipleArrays();
 
 		multiAlgorithmsSorter.SortMultipleArrays(multipleArrays);
 
-		performanceWriter.WriteAllAlgorithmsPerformances(multiAlgorithmsSorter);
+		consolePerformanceWriter.WriteAllAlgorithmsPerformances(multiAlgorithmsSorter);
+		consolePerformanceWriter.WriteAllAlgorithmsPerformances(multiAlgorithmsSorter);
+		//excelPerformanceWriter.WriteAllAlgorithmsPerformances(multiAlgorithmsSorter);
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using AlgoTestProjHomeWork.Alghorithms;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace AlgoTestProjHomeWork.MultiSorting
 			{
 				foreach (int[] array in arraysToSort)
 				{
+					item.ResetPerformance();
 					item.SortArray(array);
 				}
 			}

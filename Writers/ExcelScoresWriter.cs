@@ -8,17 +8,17 @@ namespace AlgoTestProjHomeWork.Writers
 {
 	public class ExcelScoresWriter : IDisposable, IPerformanceWriter
 	{
-		private readonly IXLWorkbook workbook = new XLWorkbook();
-		private readonly IXLWorksheet worksheet;
-		private string fileSaveName = "SortedAlgorithms.xlsx";
+		private readonly IXLWorkbook _workbook = new XLWorkbook();
+		private readonly IXLWorksheet _worksheet;
+		private string _fileSaveName = "SortedAlgorithms.xlsx";
 		private ISortAlgorithmsScores _scoreSorter;
 		private ISortAlgorithmsScores ScoreSorter => _scoreSorter ??= Factory.CreateSortScoresBeforeWrite;
-		public IXLWorkbook Workbook => workbook;
-		public IXLWorksheet Worksheet => worksheet;
-		public string FileSaveName => fileSaveName;
+		public IXLWorkbook Workbook => _workbook;
+		public IXLWorksheet Worksheet => _worksheet;
+		public string FileSaveName => _fileSaveName;
 		public ExcelScoresWriter()
 		{
-			worksheet = workbook.Worksheets.Add("Algoritms performances");
+			_worksheet = _workbook.Worksheets.Add("Algoritms performances");
 			// Initialize the worksheet headers
 			Worksheet.Cell(1, 1).Value = "Algorithm type";
 			Worksheet.Cell(1, 2).Value = "Operating time";
@@ -35,7 +35,8 @@ namespace AlgoTestProjHomeWork.Writers
 			Console.WriteLine($"File has been saved as {FileSaveName}");
 		}
 		void singleAlgorithmWrite(IAlgorithmScoresCounter algoToShowScores)
-		{           // Write the algorithm scores to the next row in the worksheet
+		{           
+			// Write the algorithm scores to the next row in the worksheet
 			int currentRow = Worksheet.LastRowUsed().RowNumber() + 1;
 			Worksheet.Cell(currentRow, 1).Value = algoToShowScores.ToString();
 			Worksheet.Cell(currentRow, 2).Value = $"{algoToShowScores.Stopwatch.Elapsed.TotalMilliseconds}ms";
@@ -50,7 +51,6 @@ namespace AlgoTestProjHomeWork.Writers
 			foreach (var algorithm in allAlgorithms.AllUsedAlgoritms)
 			{
 				singleAlgorithmWrite(algorithm);
-				algorithm.Stopwatch.Reset();
 			}
 			WriteArraysInfo(allAlgorithms);
 			// Save the workbook to a file and dispose of the workbook object
