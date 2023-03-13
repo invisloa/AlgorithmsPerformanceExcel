@@ -17,7 +17,6 @@ class Program
 		multiAlgorithmsSorter.SortMultipleArrays(multipleArrays);
 
 		consolePerformanceWriter.WriteAllAlgorithmsPerformances(multiAlgorithmsSorter);
-		consolePerformanceWriter.WriteAllAlgorithmsPerformances(multiAlgorithmsSorter);
-		//excelPerformanceWriter.WriteAllAlgorithmsPerformances(multiAlgorithmsSorter);
+		excelPerformanceWriter.WriteAllAlgorithmsPerformances(multiAlgorithmsSorter);
 	}
 }

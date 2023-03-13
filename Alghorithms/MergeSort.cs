@@ -17,7 +17,6 @@ namespace AlgoTestProjHomeWork.Alghorithms
 			stopwatch.Start();
 			MSort(copyArrayToSort);
 			stopwatch.Stop();
-
 			return copyArrayToSort;
 		}
 		void MSort(int[] arr)
