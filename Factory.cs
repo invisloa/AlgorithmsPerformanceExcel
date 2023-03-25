@@ -35,7 +35,7 @@ namespace AlgoTestProjHomeWork
 
 		#endregion
 
-		public static IMultipleAlgorithmsSorter CreateMultiAlgorithmsSorter => new MultipleAlgorithmsSorter();
+		public static IMultipleAlgorithmsSorter CreateMultiAlgorithmsSorter => new MultipleAlgorithmsSorter(Factory.AllSortingAlgorithmsList);
 		public static ISortAlgorithmsScores CreateSortScoresBeforeWrite => new AlgorithmsScoresSorter();
 	}
 }

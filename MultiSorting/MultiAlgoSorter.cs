@@ -15,16 +15,20 @@ namespace AlgoTestProjHomeWork.MultiSorting
 		public int NumberOfArraysToSort => numberOfArrays;
 		public int NumberOfValuesInArray => numberOfValuesInArray;
 
+		public MultipleAlgorithmsSorter(List<IAlgorithmScoresCounter> sortingAlgorithmsList)
+		{
+			this.sortingAlgorithmsList = sortingAlgorithmsList;
 
-		List<IAlgorithmScoresCounter> sortingAlgorithms = Factory.AllSortingAlgorithmsList;
-		public List<IAlgorithmScoresCounter> AllUsedAlgoritms => sortingAlgorithms;
+		}
+		List<IAlgorithmScoresCounter> sortingAlgorithmsList;
+		public List<IAlgorithmScoresCounter> AllUsedAlgoritms => sortingAlgorithmsList;
 
 
 		public void SortMultipleArrays(int[][] arraysToSort)
 		{
 			numberOfArrays = arraysToSort.Length;
 			numberOfValuesInArray = arraysToSort[0].Length;
-			foreach (IAlgorithmScoresCounter item in sortingAlgorithms)
+			foreach (IAlgorithmScoresCounter item in sortingAlgorithmsList)
 			{
 				foreach (int[] array in arraysToSort)
 				{
