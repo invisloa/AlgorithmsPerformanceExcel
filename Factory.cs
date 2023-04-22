@@ -12,8 +12,8 @@ namespace AlgoTestProjHomeWork
 		{
 			CreateMergeSorter,
 			CreateQuicksort,
-			//CreateBubleSorter,
-			//CreateInsertionSorter,
+			CreateBubleSorter,
+			CreateInsertionSorter,
 			CreateHeapSorter,
 			CreateLinqSort
 
